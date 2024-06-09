@@ -15,7 +15,7 @@ export const Projects = () => {
         <CardProject
           image='https://illustrations.popsy.co/gray/podcast-man.svg'
           projectName='My personal blog'
-          description='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.'
+          description='Blog in Spanish where I publish articles that seek to help other programmers'
           stack={(
             <>
               <SVGAstro /> <SVGTailwind />
@@ -30,9 +30,9 @@ export const Projects = () => {
         />
         <div className='divider' />
         <CardProject
-          image='https://illustrations.popsy.co/gray/online-shopping.svg'
+          image='https://illustrations.popsy.co/gray/sales.svg'
           projectName='Basic Shopping Cart'
-          description='Una proyecto donde pongo en practica temas de React como el useContext y useReducer'
+          description='A project where I put into practice important React topics such as useContext and useReducer'
           stack={(
             <>
               <SVGReact /> <SVGJavascript /> <SVGTailwind />
@@ -50,7 +50,7 @@ export const Projects = () => {
         <CardProject
           image='https://illustrations.popsy.co/gray/web-design.svg'
           projectName='Mini Projects Webs'
-          description='Recopilacion de pequeños proyectos para aprender desarrollo web'
+          description='Repository that compiles small projects to learn concepts of web development using the basic stack'
           stack={(
             <>
               <SVGHtml /> <SVGCss /> <SVGJavascript />

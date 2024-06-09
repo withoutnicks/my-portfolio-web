@@ -9,6 +9,7 @@ export const CardProject = ({ image, projectName, description, stack, buttons, r
           className='w-full h-full scale-125 relative rounded-lg duration-500 transition-all hover:translate-y-4'
           src={image}
           alt={projectName}
+          rel='preconnect'
         />
       </picture>
       <div className='flex flex-col justify-center gap-2'>

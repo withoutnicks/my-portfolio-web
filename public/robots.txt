@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: *.jsx
+Disallow: /assets/svgs/*.svg
+
+# Allow specific JSX files (if needed)
+Allow: /src/components/Sitemap.jsx
+
+# Allow specific SVG files (if needed)
+Allow: /assets/svgs/logo.svg

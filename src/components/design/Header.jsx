@@ -9,7 +9,7 @@ export const Header = () => {
       <p className='text-xl font-bold cursor-default select-none'>gerardo</p>
       <section className='w-full justify-end'>
         <label className='cursor-pointer grid place-items-center'>
-          <input type='checkbox' value='dracula' className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2' />
+          <input type='checkbox' value='dracula' className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2' title='Change theme' />
           <IconSun />
           <IconMoon />
         </label>
@@ -18,6 +18,7 @@ export const Header = () => {
           target='_blank'
           href='https://www.linkedin.com/in/grardocaycho/'
           rel='noreferrer'
+          title='Linkedin'
         >
           <IconLinkedin />
         </a>
@@ -26,6 +27,7 @@ export const Header = () => {
           target='_blank'
           href='https://github.com/withoutnicks'
           rel='noreferrer'
+          title='Github'
         >
           <IconGithub />
         </a>

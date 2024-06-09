@@ -13,12 +13,15 @@ export const Hero = () => {
   return (
     <main className='h-[94vh] flex flex-col items-center text-center justify-center gap-4 text-wrap'>
       <div className='avatar indicator'>
-        <span className='indicator-item font-serif badge badge-primary'>looking for work</span>
+        <span className='indicator-item font-serif badge badge-primary'>
+          looking for work
+        </span>
         <div className='grid w-32 h-32 bg-base-300 place-items-center rounded-full'>
-          <img src='/profile.png' alt='my photo' />
+          <img src='/profile.webp' alt='my photo' />
         </div>
       </div>
-      <h1 className='text-3xl md:text-4xl font-bold select-none'>Nice to meet you!
+      <h1 className='text-3xl md:text-4xl font-bold select-none'>
+        Nice to meet you!
         <br /> I&apos;m
         <span className='hover:text-primary transition duration-300 ease-in-out'>
           &nbsp;Gerardo Caycho
@@ -31,7 +34,11 @@ export const Hero = () => {
         <button className='w-60 md:w-1/2 btn' onClick={handleCopyEmail}>
           <IconEmail /> Contact Email
         </button>
-        <a className='md:w-1/2 btn btn-primary' href='../assets/cv-example.pdf' download='cv-example.pdf'>
+        <a
+          className='md:w-1/2 btn btn-primary'
+          href='../assets/cv-example.pdf'
+          download='cv-example.pdf'
+        >
           <IconCV /> Download CV
         </a>
       </section>
