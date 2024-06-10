@@ -7,6 +7,7 @@ import { SVGTailwind } from '../../assets/svgs/SVGTailwind'
 import { SVGHtml } from '../../assets/svgs/SVGHtml'
 import { SVGCss } from '../../assets/svgs/SVGCss'
 import { SVGAstro } from '../../assets/svgs/SVGAstro'
+import { IconSource } from '../icons/IconSource'
 
 export const Projects = () => {
   return (
@@ -23,8 +24,7 @@ export const Projects = () => {
           )}
           buttons={(
             <>
-              <ButtonCard link='#' text='Code' />
-              <ButtonCard link='#' text='Preview' icon={<IconLink />} />
+              <ButtonCard link='https://wts-blog.netlify.app/' text='Preview' icon={<IconLink />} />
             </>
           )}
         />
@@ -40,7 +40,11 @@ export const Projects = () => {
           )}
           buttons={(
             <>
-              <ButtonCard link='https://github.com/withoutnicks/shopping-cart-react' text='Code' />
+              <ButtonCard
+                link='https://github.com/withoutnicks/shopping-cart-react'
+                text='Code'
+                icon={<IconSource />}
+              />
               <ButtonCard link='https://my-whopping-cart.netlify.app/' text='Preview' icon={<IconLink />} />
             </>
           )}
@@ -58,7 +62,11 @@ export const Projects = () => {
           )}
           buttons={(
             <>
-              <ButtonCard link='https://github.com/withoutnicks/mini-projects-web' text='Code' />
+              <ButtonCard
+                link='https://github.com/withoutnicks/mini-projects-web'
+                text='Code'
+                icon={<IconSource />}
+              />
             </>
           )}
         />
