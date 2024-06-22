@@ -14,7 +14,7 @@ export const Projects = () => {
     <section>
       <article>
         <CardProject
-          image='https://illustrations.popsy.co/gray/podcast-man.svg'
+          image='/banners/podcastMan.svg'
           projectName='My personal blog'
           description='Blog in Spanish where I publish articles that seek to help other programmers'
           stack={(
@@ -30,7 +30,7 @@ export const Projects = () => {
         />
         <div className='divider' />
         <CardProject
-          image='https://illustrations.popsy.co/gray/sales.svg'
+          image='/banners/sales.svg'
           projectName='Basic Shopping Cart'
           description='A project where I put into practice important React topics such as useContext and useReducer'
           stack={(
@@ -52,7 +52,7 @@ export const Projects = () => {
         />
         <div className='divider' />
         <CardProject
-          image='https://illustrations.popsy.co/gray/web-design.svg'
+          image='/banners/webDesign.svg'
           projectName='Mini Projects Webs'
           description='Repository that compiles small projects to learn concepts of web development using the basic stack'
           stack={(
