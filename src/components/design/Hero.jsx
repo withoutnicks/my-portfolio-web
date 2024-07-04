@@ -13,14 +13,14 @@ export const Hero = () => {
   return (
     <main className='h-[94vh] flex flex-col items-center text-center justify-center gap-4 text-wrap'>
       <div className='avatar indicator'>
-        <span className='indicator-item font-serif badge badge-primary'>
+        <span className='indicator-item font-serif badge badge-primary top-2'>
           looking for work
         </span>
-        <div className='grid w-32 h-32 bg-base-300 place-items-center rounded-full'>
+        <div className='grid w-40 h-40 bg-base-300 place-items-center rounded-full'>
           <img src='/profile.webp' alt='my photo' />
         </div>
       </div>
-      <h1 className='text-3xl md:text-4xl font-bold select-none'>
+      <h1 className='text-4xl md:text-4xl font-extrabold select-none'>
         Nice to meet you!
         <br /> I&apos;m
         <span className='hover:text-primary transition duration-300 ease-in-out'>
