@@ -1,0 +1,48 @@
+---
+import SubtitleComp from '@/components/astro/SubtitleComp.astro';
+import { GraduationCap } from 'lucide-react';
+---
+
+<SubtitleComp title='Education'>
+	<GraduationCap size={32} />
+</SubtitleComp>
+
+<section class='p-4 md:max-w-xl md:mx-auto'>
+	<!-- Heading -->
+	<div class='ps-2 my-2 first:mt-0'>
+		<h3 class='text-xs font-medium uppercase text-gray-500 dark:text-neutral-400'>2022 - 2024</h3>
+	</div>
+	<!-- End Heading -->
+
+	<!-- Item -->
+	<div class='flex gap-x-3'>
+		<!-- Icon -->
+		<div
+			class='relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-300 dark:after:bg-neutral-700'
+		>
+			<div class='relative z-10 size-7 flex justify-center items-center'>
+				<div class='size-2 rounded-full bg-gray-400 dark:bg-neutral-600'></div>
+			</div>
+		</div>
+		<!-- End Icon -->
+
+		<!-- Right Content -->
+		<div class='grow py-4 text-wrap'>
+			<h3 class='flex gap-x-1.5 items-center font-semibold text-gray-800 dark:text-white'>
+				<img
+					src='/idat.webp'
+					alt='Logo institute IDAT'
+					class='size-4 rounded-lg dark:invert hidden sm:block'
+					loading='lazy'
+				/>
+				Information Systems Development - IDAT
+			</h3>
+			<p class='mt-1 text-sm text-gray-600 dark:text-neutral-400 max-w-lg'>
+				Graduated in the technical career of Systems Development or Computing and Informatics at the Idat institute in
+				Lima, Peru
+			</p>
+		</div>
+		<!-- End Right Content -->
+	</div>
+	<!-- End Item -->
+</section>

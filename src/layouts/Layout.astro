@@ -1,0 +1,56 @@
+---
+import "@/styles/globals.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-black dark:text-white dark:bg-black font-space overflow-x-hidden selection:bg-emerald-100 selection:dark:bg-well-red-400">
+    <div class="max-w-4xl mx-auto">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>

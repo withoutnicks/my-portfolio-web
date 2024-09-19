@@ -1,0 +1,16 @@
+---
+import { buttonVariants } from '../ui/button';
+
+interface Props {
+	href: string;
+	text: string;
+	variantbtn: 'default' | 'secondary';
+}
+
+const { href, text, variantbtn} = Astro.props;
+---
+
+<a class={buttonVariants({ variant: variantbtn , size: 'sm' })} slot='actions-btn' href={href} target='_blank'>
+	{text}
+	<slot />
+</a>

@@ -1,0 +1,82 @@
+---
+import SubtitleComp from '@/components/astro/SubtitleComp.astro';
+import CardProjectComp from './astro/CardProjectComp.astro';
+import CardBtnComp from './astro/CardBtnComp.astro';
+import IconAT from '@/components/icons/IconAT.astro';
+import IconRT from '@/components/icons/IconRT.astro';
+import IconTL from '@/components/icons/IconTL.astro';
+import IconDY from '@/components/icons/IconDY.astro';
+import IconJS from './icons/IconJS.astro';
+import IconHL from './icons/IconHL.astro';
+import IconCS from './icons/IconCS.astro';
+import { FolderKanban, ExternalLink, Code } from 'lucide-react';
+---
+
+<SubtitleComp title='Projects'>
+	<FolderKanban size={32} />
+</SubtitleComp>
+
+<section class='p-4'>
+	<CardProjectComp
+		image='/poster/podcast.svg'
+		namep='My personal blog'
+		descriptionp='Blog in Spanish where I publish articles that seek to help other programmers'
+	>
+		<!-- Icons -->
+		<IconAT class='text-slate-500 dark:text-slate-400' slot='stack-tech' />
+		<IconDY class='text-cyan-500 dark:text-cyan-400' slot='stack-tech' />
+		<!-- Buttons -->
+		<CardBtnComp
+			href='https://github.com/withoutnicks/my-blog'
+			text='Repository'
+			variantbtn='secondary'
+			slot='actions-btn'
+		>
+			<Code className='ml-2 size-4' />
+		</CardBtnComp>
+		<CardBtnComp href='https://wts-blog.netlify.app/' text='Visit' variantbtn='default' slot='actions-btn'>
+			<ExternalLink className='ml-2 size-4' />
+		</CardBtnComp>
+	</CardProjectComp>
+	<CardProjectComp
+		image='/poster/sales.svg'
+		namep='Basic Shopping Cart'
+		descriptionp='A project where I put into practice important React topics such as useContext and useReducer'
+	>
+		<!-- Icons -->
+		<IconRT class='text-sky-500 dark:text-sky-400' slot='stack-tech' />
+		<IconDY class='text-cyan-500 dark:text-cyan-400' slot='stack-tech' />
+		<IconTL class='text-cyan-500 dark:text-cyan-400' slot='stack-tech' />
+		<!-- Buttons -->
+		<CardBtnComp
+			href='https://github.com/withoutnicks/shopping-cart-react'
+			text='Repository'
+			variantbtn='secondary'
+			slot='actions-btn'
+		>
+			<Code className='ml-2 size-4' />
+		</CardBtnComp>
+		<CardBtnComp href='https://my-whopping-cart.netlify.app/' text='Visit' variantbtn='default' slot='actions-btn'>
+			<ExternalLink className='ml-2 size-4' />
+		</CardBtnComp>
+	</CardProjectComp>
+	<CardProjectComp
+		image='/poster/web.svg'
+		namep='Projects to Learn'
+		descriptionp='Repository that compiles small projects to learn concepts of web development using the basic stack'
+	>
+		<!-- Icons -->
+		<IconJS class='text-yellow-500 dark:text-yellow-400' slot='stack-tech' />
+		<IconHL class='text-orange-500 dark:text-orange-400' slot='stack-tech' />
+		<IconCS class='text-sky-500 dark:text-sky-400' slot='stack-tech' />
+		<!-- Buttons -->
+		<CardBtnComp
+			href='https://github.com/withoutnicks/mini-projects-web'
+			text='Repository'
+			variantbtn='secondary'
+			slot='actions-btn'
+		>
+			<Code className='ml-2 size-4' />
+		</CardBtnComp>
+	</CardProjectComp>
+</section>

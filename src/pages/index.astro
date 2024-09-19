@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Meteors from "@/components/ui/meteors";
+import Header from "@/components/HeaderComponent.astro";
+import Hero from "@/components/HeroComponent.astro";
+import Projects from '@/components/ProjectsComponent.astro'
+import Studies from "@/components/StudiesComponent.astro";
+import About from "@/components/AboutComponent.astro";
+import Footer from '@/components/FooterComponent.astro'
+import Skills from "@/components/SkillsComponent.astro";
+import { Toaster } from 'react-hot-toast'
+---
+
+<Layout title="Portfolio web - Gerardo">
+  <!-- Background -->
+  <Meteors number={30} client:load />
+  <!-- End background -->
+  <Header />
+  <Hero />
+  <Projects />
+  <Studies />
+  <Skills />
+  <About />
+  <Footer />
+  <!-- Toast -->
+  <Toaster client:load />
+  <!-- End toast -->
+</Layout>
