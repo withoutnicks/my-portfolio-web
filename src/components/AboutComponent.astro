@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import SubtitleComp from './astro/SubtitleComp.astro';
 import { Ghost } from 'lucide-react';
 ---
@@ -20,5 +21,12 @@ import { Ghost } from 'lucide-react';
 			Currently, I am focused on <strong>learning web development</strong> in a self-taught manner, building on what I learned during my formal education.
 		</p>
 	</div>
-	<img src="about.webp" alt='Frontal selfie' class='mask mask-squircle max-w-64 object-cover' loading='lazy' />
+	<Image
+		width={256}
+		height={256}
+		src="/about.webp"
+		alt='Frontal selfie'
+		loading={'lazy'}
+		class='mask mask-squircle object-cover'
+	/>
 </section>
