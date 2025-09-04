@@ -1,54 +1,138 @@
-# Astro Starter Kit: Basics
+# 🚀 Portfolio Web - Gerardo Caycho
 
-```sh
-npm create astro@latest -- --template basics
+## 🚀 Instalación y Uso
+
+### Prerrequisitos
+
+- Node.js (versión 18 o superior)
+- pnpm (recomendado) o npm
+
+### Pasos de instalación
+
+```bash
+# Clone repository
+git clone https://github.com/tu-usuario/my-portfolio-web.git
+cd my-portfolio-web
+
+# Install dependencies
+pnpm install
+
+# Execute project
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### Scripts disponibles
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Comando        | Descripción                                          |
+| -------------- | ---------------------------------------------------- |
+| `pnpm dev`     | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build`   | Construye la aplicación para producción              |
+| `pnpm preview` | Previsualiza la build de producción                  |
+| `pnpm astro`   | Ejecuta comandos de la CLI de Astro                  |
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+---
 
-## 🚀 Project Structure
+## 🧱 Arquitectura y Convenciones
 
-Inside of your Astro project, you'll see the following folders and files:
+Esta base usa Astro con React y Tailwind. Para escalar cómodamente (y preparar la migración a Astro 5 y Tailwind 4), se adoptan alias y una estructura por dominios.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+### Estructura de carpetas propuesta
+
+```
+src/
+  components/
+    astro/           # Componentes Astro atómicos (UI puros, sin lógica de negocio)
+    react/           # Componentes React (interactividad, client:* directives)
+    ui/              # Primitivas de UI reutilizables (botones, badges, etc.)
+    icons/           # Íconos
+    (feature-*/)**   # Opcional: agrupar por feature si crece el proyecto
+  layouts/           # Layouts
+  pages/             # Rutas
+  styles/            # CSS global, tokens y utilidades de estilos
+  lib/               # Utilidades puras, helpers, constantes
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Mantén `public/` para assets estáticos (imágenes, fuentes, favicon, etc.).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Aliases de importación
 
-Any static assets, like images, can be placed in the `public/` directory.
+Definidos en `tsconfig.json`:
 
-## 🧞 Commands
+- `@/*` → `src/*`
+- `@components/*` → `src/components/*`
+- `@layouts/*` → `src/layouts/*`
+- `@pages/*` → `src/pages/*`
+- `@styles/*` → `src/styles/*`
+- `@lib/*` → `src/lib/*`
+- `@ui/*` → `src/components/ui/*`
+- `@icons/*` → `src/components/icons/*`
+- `@astro/*` → `src/components/astro/*`
+- `@react/*` → `src/components/react/*`
 
-All commands are run from the root of the project, from a terminal:
+Ejemplo en `src/pages/index.astro`:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```astro
+---
+import Layout from "@layouts/Layout.astro";
+import Meteors from "@ui/meteors";
+import Header from "@components/HeaderComponent.astro";
+---
+```
 
-## 👀 Want to learn more?
+### Convenciones de nombres
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Componentes Astro: `PascalCase` y sufijo opcional `.astro` (p.ej. `Header.astro`).
+- Componentes React: `PascalCase.tsx` (p.ej. `ModeToggle.tsx`).
+- Primitivas UI: nombres semánticos y neutrales (`Button.tsx`, `Badge.tsx`).
+- Archivos utilitarios en `lib/`: `kebab-case` (`utils.ts`, `format-date.ts`).
+- Evita nombres con sufijos largos como `Component`; prefiere `Header.astro` en lugar de `HeaderComponent.astro`. La migración puede hacerse en dos fases (ver plan abajo).
+
+## 🔄 Plan de migración de nombres de componentes (seguro, sin romper)
+
+Fase 1 (no disruptiva):
+
+1. Mantener archivos actuales y crear re-exportaciones con nombres nuevos si aplica.
+2. Actualizar imports gradualmente a los nuevos nombres y/o rutas con alias.
+
+Fase 2 (limpieza):
+
+1. Renombrar archivos físicos (`HeaderComponent.astro` → `Header.astro`).
+2. Ejecutar búsqueda y reemplazo de imports restantes.
+3. Eliminar re-exportaciones temporales.
+
+Sugerencias de renombre:
+
+- `HeaderComponent.astro` → `Header.astro`
+- `HeroComponent.astro` → `Hero.astro`
+- `ProjectsComponent.astro` → `Projects.astro`
+- `StudiesComponent.astro` → `Studies.astro`
+- `SkillsComponent.astro` → `Skills.astro`
+- `AboutComponent.astro` → `About.astro`
+- `FooterComponent.astro` → `Footer.astro`
+
+## ⬆️ Plan para Astro 5 y Tailwind CSS 4
+
+Astro 5:
+
+- Revisa breaking changes en la guía oficial. Ajusta integraciones si cambian (`@astrojs/react`, `@astrojs/tailwind`).
+- Ejecuta `pnpm update astro @astrojs/react @astrojs/tailwind` y corrige advertencias.
+- Valida `client:*` directives y props de componentes React/Islas.
+
+Tailwind 4:
+
+- Actualiza a `tailwindcss@^4` y revisa cambios de configuración (nuevo preset, posibles cambios en `content`, tokens y `@tailwind base/components/utilities`).
+- Si se utiliza `tailwind-merge` o `tailwindcss-animate`, verifica compatibilidad de versiones.
+- Revisa clases personalizadas y utilidades que pudieran cambiar en TW4.
+
+Checklist sugerida:
+
+1. Actualizar dependencias: `astro`, `@astrojs/*`, `tailwindcss`, plugins.
+2. Revisar `tailwind.config.mjs` y `globals.css` (tokens, baseStyles, dark mode).
+3. Ejecutar `pnpm build` y corregir warnings/errores.
+4. Validar rutas e imports con alias nuevos.
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+---

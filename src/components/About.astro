@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import SubtitleSection from "@/components/astro/SubtitleSection.astro";
+import { Ghost } from "lucide-react";
+---
+
+<SubtitleSection title="About Me">
+	<Ghost size={32} />
+</SubtitleSection>
+
+<section class="my-4 flex flex-col items-center justify-center gap-4 px-6 sm:h-80 sm:flex-row sm:p-2">
+	<div class="flex max-w-[25rem] flex-col gap-2 text-pretty text-sm sm:text-base">
+		<p>
+			My name is <strong>Gerardo Caycho</strong> and I am <strong>19 years old.</strong> I didn&apos;t realize how much I
+			liked this field until I started studying it.
+		</p>
+		<p>
+			I am studying for a degree in <strong>Information Systems Development</strong> or
+			<strong>Computing and Informatics</strong> virtually at the <strong>Information Systems Development</strong>
+		</p>
+		<p>
+			Currently, I am focused on <strong>learning web development</strong> in a self-taught manner, building on what I learned
+			during my formal education.
+		</p>
+	</div>
+	<Image
+		width={256}
+		height={256}
+		src="/about.webp"
+		alt="Frontal selfie"
+		loading={"lazy"}
+		class="mask mask-squircle object-cover"
+	/>
+</section>
