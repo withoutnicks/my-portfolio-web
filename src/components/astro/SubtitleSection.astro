@@ -1,14 +1,13 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title = "Other" } = Astro.props;
 ---
 
 <header
-	class="my-2 flex items-center gap-2 pl-4 font-space text-2xl font-medium hover:underline sm:justify-center md:text-3xl"
+  class="my-4 mt-6 flex items-center gap-2 font-asimovian text-xl font-bold hover:underline sm:justify-center md:text-3xl"
 >
-	<slot />
-	{title}
+  {title}
 </header>

@@ -1,46 +1,42 @@
 ---
 import { EnvelopeClosedIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { Button, buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "@ui/button";
 import "@fontsource-variable/space-grotesk";
+import LinkButton from "@astro/LinkButton.astro";
 ---
 
 <section class="grid h-[92vh] place-content-center place-items-center gap-4 text-center">
-	<div class="relative flex w-full justify-center">
-		<img
-			src="profile.webp"
-			alt="Selfie for my portfolio"
-			class="size-44 rounded-full pointer-events-none"
-			loading="eager"
-		/>
-	</div>
-	<div class="flex flex-col">
-		<h1 class="text-4xl font-bold md:text-4xl group cursor-crosshair font-space">
-			Nice to meet you!<br /> I&apos;m
-			<span class="transition duration-300 ease-in-out group-hover:text-well-red-600">Gerardo Caycho</span>
-		</h1>
-		<p class="my-4 font-varela">Web Application Developer. Lima, Peru.</p>
-		<section class="mx-auto flex flex-col gap-2 sm:flex-row">
-			<Button variant="outline" id="btnCopyEmail">
-				<EnvelopeClosedIcon className="mr-2" /> Contact Email
-			</Button>
-			<a
-				class={buttonVariants({ variant: "primary" })}
-				href="/cv_gcaycho.pdf"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<FileTextIcon className="mr-2" /> View CV
-			</a>
-		</section>
-	</div>
+  <div class="relative flex w-full justify-center">
+    <img
+      src="profile.webp"
+      alt="Selfie for my portfolio"
+      class="size-44 rounded-full pointer-events-none"
+      loading="eager"
+    />
+  </div>
+  <div class="flex flex-col">
+    <h1 class="text-4xl font-bold md:text-4xl group cursor-crosshair font-space">
+      hoLa, me llamo <br />
+      <span class="transition duration-300 ease-in-out group-hover:text-blue-600">gerardo caycho</span>
+    </h1>
+    <p class="my-4 font-varela">Desarrollador de aplicaciones web. Lima, Peru.</p>
+    <section class="mx-auto flex flex-col gap-2 sm:flex-row">
+      <Button variant="outline" id="btnCopyEmail">
+        <EnvelopeClosedIcon className="mr-2" /> Contactar
+      </Button>
+      <LinkButton link="/cv_gcaycho.pdf" variant={"primary"} text="Ver CV" position="left">
+        <FileTextIcon />
+      </LinkButton>
+    </section>
+  </div>
 </section>
 
 <script>
-	import { toast } from "sonner";
-	const $btn = document.querySelector("#btnCopyEmail");
+  import { toast } from "sonner";
+  const $btn = document.querySelector("#btnCopyEmail");
 
-	$btn?.addEventListener("click", () => {
-		navigator.clipboard.writeText("gcaycho07@gmail.com");
-		toast.success("Email copied in clipboard");
-	});
+  $btn?.addEventListener("click", () => {
+    navigator.clipboard.writeText("gcaycho07@gmail.com");
+    toast.success("Email copiado en el portapapeles");
+  });
 </script>

@@ -1,0 +1,25 @@
+---
+import { buttonVariants } from "@ui/button";
+import { type typeVariant } from "@/types";
+
+interface Props {
+  link: string;
+  text: string;
+  variant: typeVariant;
+  position?: "left" | "right";
+}
+
+const { link, text, variant, position = "right" } = Astro.props;
+---
+
+<a
+  class={`${buttonVariants({ variant })} inline-flex gap-2`}
+  slot="actions-btn"
+  href={link}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {position === "left" && <slot />}
+  {text}
+  {position === "right" && <slot />}
+</a>

@@ -14,7 +14,7 @@
       "@ui/*": ["./src/components/ui/*"],
       "@icons/*": ["./src/components/icons/*"],
       "@astro/*": ["./src/components/astro/*"],
-      "@react/*": ["./src/components/react/*"]
+      "@views/*": ["./src/components/views/*"]
     }
   }
 }

@@ -6,20 +6,20 @@ import Projects from "@components/Projects.astro";
 import Studies from "@components/Studies.astro";
 import About from "@components/About.astro";
 import Skills from "@components/Skills.astro";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@ui/sonner";
 ---
 
 <Layout title="Portfolio Desarrollador Web | Gerardo Caycho">
-	<!-- Background -->
-	<Meteors number={30} client:load />
-	<!-- End background -->
+  <!-- Background -->
+  <Meteors number={30} client:load />
+  <!-- End background -->
 
-	<Hero />
-	<Projects />
-	<Studies />
-	<Skills />
-	<About />
-	<!-- Toast -->
-	<Toaster client:load />
-	<!-- End toast -->
+  <Hero />
+  <Projects />
+  <Studies />
+  <Skills />
+  <About />
+  <!-- Toast -->
+  <Toaster client:load />
+  <!-- End toast -->
 </Layout>

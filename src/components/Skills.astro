@@ -1,24 +1,21 @@
 ---
-import { Zap } from "lucide-react";
-import SubtitleSection from "@/components/astro/SubtitleSection.astro";
-import { Badge } from "./ui/badge";
+import SubtitleSection from "@astro/SubtitleSection.astro";
+import { Badge } from "@ui/badge";
 ---
 
-<SubtitleSection title="Skills">
-	<Zap size={32} />
-</SubtitleSection>
+<SubtitleSection title="Habilidades" />
 
-<section class="my-4 flex flex-col justify-center gap-2 p-4">
-	<div class="sm:mx-auto">
-		<small>Lenguajes:</small>
-		<Badge variant="secondary">Javascript</Badge>
-		<Badge variant="secondary">PHP</Badge>
-		<Badge variant="secondary">CSS</Badge>
-	</div>
-	<div class="sm:mx-auto">
-		<small>Framework/Library:</small>
-		<Badge variant="secondary">Astro</Badge>
-		<Badge variant="secondary">React</Badge>
-		<Badge variant="secondary">Laravel</Badge>
-	</div>
+<section class="flex flex-col justify-center gap-2 p-2">
+  <div class="sm:mx-auto">
+    <small>Lenguajes:</small>
+    <Badge variant="secondary">TypeScript</Badge>
+    <Badge variant="secondary">CSS</Badge>
+    <Badge variant="secondary">PHP</Badge>
+  </div>
+  <div class="sm:mx-auto">
+    <small>Framework's/Librerias:</small>
+    <Badge variant="secondary">Astro</Badge>
+    <Badge variant="secondary">React</Badge>
+    <Badge variant="secondary">Next.js</Badge>
+  </div>
 </section>
