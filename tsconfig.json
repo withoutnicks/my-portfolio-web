@@ -11,7 +11,7 @@
       "@pages/*": ["./src/pages/*"],
       "@styles/*": ["./src/styles/*"],
       "@lib/*": ["./src/lib/*"],
-      "@ui/*": ["./src/components/ui/*"],
+      "@atoms/*": ["src/components/atoms/*"],
       "@icons/*": ["./src/components/icons/*"],
       "@astro/*": ["./src/components/astro/*"],
       "@views/*": ["./src/components/views/*"]

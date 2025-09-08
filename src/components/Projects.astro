@@ -1,59 +1,22 @@
 ---
 import SubtitleSection from "@astro/SubtitleSection.astro";
-import ProjectCard from "@astro/ProjectCard.astro";
-import LinkButton from "@astro/LinkButton.astro";
-import { CodeIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
-import { AstroIcon, TailwindCSSIcon, VisualStudioCodeIcon } from "@ui/icons";
+
+import { projects } from "@/data/projects";
+import { ProjectCard } from "./molecules/projectCard";
 ---
 
 <SubtitleSection title="Proyectos Destacados" />
 
 <section class="flex flex-col gap-8 p-2">
-  <!-- START -->
-  <ProjectCard
-    bannerUrl="/poster/web.svg"
-    name="La casa Informatica"
-    description='Creé la página de inicio para la academia de programación "La Casa Informática". Esta página buscaba informar y atraer nuevos estudiantes.'
-  >
-    <AstroIcon slot="stack-tech" />
-    <TailwindCSSIcon slot="stack-tech" />
-    <!-- | -->
-    <LinkButton
-      link="https://github.com/withoutnicks/landing-la-casa-informatica"
-      text="Repository"
-      variant="secondary"
-      slot="actions-btn"
-    >
-      <CodeIcon />
-    </LinkButton>
-    <LinkButton link="https://lacasainformatica.com/" text="Visit" variant="default" slot="actions-btn">
-      <ExternalLinkIcon />
-    </LinkButton>
-  </ProjectCard>
-  <!-- | -->
-  <ProjectCard
-    bannerUrl="/poster/speed.svg"
-    name="Extension for VSC"
-    description="Colección de snippets para React, Typescript y Javascript que busca impulsar tu productividad en desarrollo web con atajos modernos."
-  >
-    <VisualStudioCodeIcon slot="stack-tech" />
-    <!-- | -->
-    <LinkButton
-      link="https://github.com/withoutnicks/react-and-js-snippets"
-      text="Repository"
-      variant="secondary"
-      slot="actions-btn"
-    >
-      <CodeIcon />
-    </LinkButton>
-    <LinkButton
-      link="https://marketplace.visualstudio.com/items?itemName=wts-dev.wts-react-js-snippets"
-      text="Store"
-      variant="default"
-      slot="actions-btn"
-    >
-      <ExternalLinkIcon />
-    </LinkButton>
-  </ProjectCard>
-  <!-- END -->
+  {
+    projects.map((project) => (
+      <ProjectCard
+        name={project.name}
+        description={project.description}
+        bannerUrl={project.bannerUrl}
+        stackTech={project.stackTech}
+        ctas={project.ctas}
+      />
+    ))
+  }
 </section>

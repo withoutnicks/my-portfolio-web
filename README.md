@@ -74,7 +74,7 @@ Ejemplo en `src/pages/index.astro`:
 ```astro
 ---
 import Layout from "@layouts/Layout.astro";
-import Meteors from "@ui/meteors";
+import Meteors from "@atoms/meteors";
 import Header from "@components/HeaderComponent.astro";
 ---
 ```

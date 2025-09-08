@@ -1,0 +1,48 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SubtitleSection from "@/components/astro/SubtitleSection.astro";
+import { Button } from "@/components/atoms/button";
+import { Input } from "@atoms/input";
+import { Label } from "@atoms/label";
+import { Textarea } from "@atoms/textarea";
+---
+
+<Layout title="Portfolio Desarrollador Web | Contactar">
+  <SubtitleSection title="Contactar" />
+  <form
+    class="md:mx-auto md:max-w-md p-2 flex flex-col gap-4"
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="honeypot"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    <!-- Input Honey Pot  -->
+    <input type="text" name="honeypot" style="display:none;" />
+
+    <Label className="font-space font-bold"
+      >Nombre
+      <span class="text-blue-600">*</span>
+      <Input type="text" name="fullname" placeholder="Jhon Caceres..." required />
+    </Label>
+
+    <Label className="font-space font-bold"
+      >Email
+      <span class="text-blue-600">*</span>
+      <Input type="email" name="email" placeholder="jhon.caceres@example.com" required />
+    </Label>
+
+    <Label className="font-space font-bold"
+      >Tu mensaje
+      <span class="text-blue-600">*</span>
+      <Textarea
+        name="message"
+        placeholder="Hola, Necesito contactarte para..."
+        className="resize-none"
+        rows={12}
+        required
+      />
+    </Label>
+    <Button>Enviar</Button>
+  </form>
+</Layout>
