@@ -1,15 +1,15 @@
 import type { Project } from "@/types";
 import { CodeIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
-import { AstroIcon, TailwindCSSIcon, VisualStudioCodeIcon } from "@/components/atoms/icons";
+import { AstroIcon, JSONIcon, TailwindCSSIcon, TypeScriptIcon, VisualStudioCodeIcon } from "@/components/atoms/icons";
 
 export const projects: Project[] = [
   {
     id: "la-casa-informatica",
     name: "La casa Informática",
     description:
-      'Creé la página de inicio para la academia de programación "La Casa Informática". Esta página buscaba informar y atraer nuevos estudiantes.',
+      'Creé la página web para la academia de programación "La Casa Informática". Este proyecto buscaba informar y atraer a nuevos estudiantes.',
     bannerUrl: "/poster/web.svg",
-    stackTech: [<AstroIcon />, <TailwindCSSIcon />],
+    stackTech: [<AstroIcon />, <TailwindCSSIcon />, <TypeScriptIcon />],
     ctas: [
       {
         link: "https://github.com/withoutnicks/landing-la-casa-informatica",
@@ -27,11 +27,11 @@ export const projects: Project[] = [
   } satisfies Project,
   {
     id: "extension-for-vsc",
-    name: "Extension for VSC",
+    name: "Extension para VSC",
     description:
       "Colección de snippets para React, Typescript y Javascript que busca impulsar tu productividad en desarrollo web con atajos modernos.",
     bannerUrl: "/poster/speed.svg",
-    stackTech: [<VisualStudioCodeIcon />],
+    stackTech: [<VisualStudioCodeIcon />, <JSONIcon />],
     ctas: [
       {
         link: "https://github.com/withoutnicks/react-and-js-snippets",

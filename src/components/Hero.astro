@@ -1,5 +1,5 @@
 ---
-import { EnvelopeClosedIcon, FileTextIcon } from "@radix-ui/react-icons";
+import { EnvelopeClosedIcon, FileTextIcon, CheckCircledIcon } from "@radix-ui/react-icons";
 import { Button } from "@atoms/button";
 import "@fontsource-variable/space-grotesk";
 import LinkButton from "@astro/LinkButton.astro";
@@ -17,7 +17,9 @@ import LinkButton from "@astro/LinkButton.astro";
   <div class="flex flex-col">
     <h1 class="text-4xl font-bold md:text-4xl group cursor-crosshair font-space">
       hoLa, me llamo <br />
-      <span class="transition duration-300 ease-in-out group-hover:text-blue-600">gerardo caycho</span>
+      <span class="transition duration-300 ease-in-out group-hover:text-blue-600"
+        >gerardo caycho</span
+      >
     </h1>
     <p class="my-4 font-varela">Desarrollador de aplicaciones web. Lima, Peru.</p>
     <section class="mx-auto flex flex-col gap-2 sm:flex-row">
@@ -37,6 +39,6 @@ import LinkButton from "@astro/LinkButton.astro";
 
   $btn?.addEventListener("click", () => {
     navigator.clipboard.writeText("gcaycho07@gmail.com");
-    toast.success("Email copiado en el portapapeles");
+    toast("Email copiado en el portapapeles");
   });
 </script>

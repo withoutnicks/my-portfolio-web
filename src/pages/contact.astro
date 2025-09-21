@@ -21,15 +21,20 @@ import { Textarea } from "@atoms/textarea";
     <input type="text" name="honeypot" style="display:none;" />
 
     <Label className="font-space font-bold"
-      >Nombre
-      <span class="text-blue-600">*</span>
-      <Input type="text" name="fullname" placeholder="Jhon Caceres..." required />
+      >Nombre <span class="text-blue-600">*</span>
+      <Input type="text" name="fullname" placeholder="Jhon Caceres..." className="mt-2" required />
     </Label>
 
     <Label className="font-space font-bold"
       >Email
       <span class="text-blue-600">*</span>
-      <Input type="email" name="email" placeholder="jhon.caceres@example.com" required />
+      <Input
+        type="email"
+        name="email"
+        placeholder="jhon.caceres@example.com"
+        className="mt-2"
+        required
+      />
     </Label>
 
     <Label className="font-space font-bold"
@@ -38,7 +43,7 @@ import { Textarea } from "@atoms/textarea";
       <Textarea
         name="message"
         placeholder="Hola, Necesito contactarte para..."
-        className="resize-none"
+        className="resize-none mt-2"
         rows={12}
         required
       />
@@ -46,3 +51,34 @@ import { Textarea } from "@atoms/textarea";
     <Button>Enviar</Button>
   </form>
 </Layout>
+
+<script>
+  import { toast } from "sonner";
+  const $form = document.querySelector<HTMLFormElement>("#contact-form");
+
+  const handleSubmit = async (event: SubmitEvent) => {
+    event.preventDefault();
+    if (!$form) return;
+
+    const formData = new FormData($form);
+    const body = new URLSearchParams(formData as any).toString();
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      });
+      if (res.ok) {
+        toast.success("Gracias por contactarnos 😊");
+        $form.reset();
+      } else {
+        toast.error("Error al enviar 🐢");
+      }
+    } catch (err) {
+      toast.error("Algo salió mal 😭");
+    }
+  };
+
+  $form?.addEventListener("submit", handleSubmit);
+</script>
