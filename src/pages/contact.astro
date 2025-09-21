@@ -11,9 +11,9 @@ import { Textarea } from "@atoms/textarea";
   <SubtitleSection title="Contactar" />
   <form
     class="md:mx-auto md:max-w-md p-2 flex flex-col gap-4"
+    id="contact-form"
     name="contact"
     method="POST"
-    data-netlify="true"
     netlify-honeypot="honeypot"
   >
     <input type="hidden" name="form-name" value="contact" />
@@ -54,8 +54,9 @@ import { Textarea } from "@atoms/textarea";
 
 <script>
   import { toast } from "sonner";
+
   document.addEventListener("astro:page-load", () => {
-    const $form = document.getElementById("contact-form") as HTMLFormElement;
+    const $form = document.querySelector("#contact-form") as HTMLFormElement;
 
     if ($form) {
       $form.addEventListener("submit", handleSubmit);
@@ -84,7 +85,7 @@ import { Textarea } from "@atoms/textarea";
         });
 
         if (response.ok) {
-          toast.success("¡Mensaje enviado con éxito! Te contactaremos pronto.");
+          toast.success("¡Mensaje enviado con éxito!");
           $form.reset();
         } else {
           throw new Error(`Parece que eso no funciono...`);
