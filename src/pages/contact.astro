@@ -55,7 +55,7 @@ import { Textarea } from "@atoms/textarea";
 <script>
   import { toast } from "sonner";
 
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("astro:after-swap", () => {
     const $form = document.querySelector("#contact-form") as HTMLFormElement;
 
     if ($form) {
