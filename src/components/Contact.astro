@@ -7,55 +7,53 @@ import { Label } from "@atoms/label";
 import { Textarea } from "@atoms/textarea";
 ---
 
-<Layout title="Portfolio Desarrollador Web | Contactar">
-  <SubtitleSection title="Contactar" />
-  <form
-    class="md:mx-auto md:max-w-md p-2 flex flex-col gap-4"
-    id="contact-form"
-    name="contact"
-    method="POST"
-    netlify-honeypot="honeypot"
-  >
-    <input type="hidden" name="form-name" value="contact" />
-    <!-- Input Honey Pot  -->
-    <input type="text" name="honeypot" style="display:none;" />
+<SubtitleSection title="Contactar" />
+<form
+  class="md:mx-auto md:max-w-md px-8 sm:p-2 flex flex-col gap-4"
+  id="contact-form"
+  name="contact"
+  method="POST"
+  netlify-honeypot="honeypot"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <!-- Input Honey Pot  -->
+  <input type="text" name="honeypot" style="display:none;" />
 
-    <Label className="font-space font-bold"
-      >Nombre <span class="text-blue-600">*</span>
-      <Input type="text" name="fullname" placeholder="Jhon Caceres..." className="mt-2" required />
-    </Label>
+  <Label className="font-space font-bold"
+    >Nombre <span class="text-blue-600">*</span>
+    <Input type="text" name="fullname" placeholder="Jhon Caceres..." className="mt-2" required />
+  </Label>
 
-    <Label className="font-space font-bold"
-      >Email
-      <span class="text-blue-600">*</span>
-      <Input
-        type="email"
-        name="email"
-        placeholder="jhon.caceres@example.com"
-        className="mt-2"
-        required
-      />
-    </Label>
+  <Label className="font-space font-bold"
+    >Email
+    <span class="text-blue-600">*</span>
+    <Input
+      type="email"
+      name="email"
+      placeholder="jhon.caceres@example.com"
+      className="mt-2"
+      required
+    />
+  </Label>
 
-    <Label className="font-space font-bold"
-      >Tu mensaje
-      <span class="text-blue-600">*</span>
-      <Textarea
-        name="message"
-        placeholder="Hola, Necesito contactarte para..."
-        className="resize-none mt-2"
-        rows={12}
-        required
-      />
-    </Label>
-    <Button>Enviar</Button>
-  </form>
-</Layout>
+  <Label className="font-space font-bold"
+    >Tu mensaje
+    <span class="text-blue-600">*</span>
+    <Textarea
+      name="message"
+      placeholder="Hola, Necesito contactarte para..."
+      className="resize-none mt-2"
+      rows={12}
+      required
+    />
+  </Label>
+  <Button>Enviar</Button>
+</form>
 
 <script>
   import { toast } from "sonner";
 
-  document.addEventListener("astro:after-swap", () => {
+  document.addEventListener("astro:page-load", () => {
     const $form = document.querySelector("#contact-form") as HTMLFormElement;
 
     if ($form) {
@@ -84,7 +82,7 @@ import { Textarea } from "@atoms/textarea";
           body: new URLSearchParams(formData as any).toString(),
         });
 
-        if (response.ok) {
+        if (response) {
           toast.success("¡Mensaje enviado con éxito!");
           $form.reset();
         } else {
