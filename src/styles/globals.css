@@ -23,12 +23,15 @@
     @apply text-white underline underline-offset-4 decoration-zinc-600 transition-colors hover:decoration-white;
   }
   .btn {
-    @apply inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-transparent px-3 py-1.5 text-sm text-white transition-colors hover:bg-zinc-900;
+    @apply inline-flex items-center gap-2 rounded-md border border-zinc-700 bg-transparent px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800 hover:text-white;
   }
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-1.5 text-sm text-white transition-colors hover:bg-blue-700;
   }
   .badge {
-    @apply inline-flex items-center gap-1 rounded-md border border-zinc-800 bg-zinc-900 px-2 py-0.5 text-xs text-zinc-200;
+    @apply inline-flex items-center gap-1 rounded-md border border-zinc-700 bg-zinc-800 px-2 py-0.5 text-xs text-zinc-300;
+  }
+  .card {
+    @apply rounded-lg border border-zinc-800 bg-zinc-900/50 p-4;
   }
 }

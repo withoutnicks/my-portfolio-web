@@ -9,4 +9,5 @@ export interface Project {
   description: string;
   stack: string[];
   links: ProjectLink[];
+  bannerUrl?: string;
 }

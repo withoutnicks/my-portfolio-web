@@ -8,16 +8,14 @@ const nav = [
 ];
 ---
 
-<header
-  class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-zinc-800 py-6"
->
-  <a href="/" class="text-lg text-white">gerardo</a>
-  <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+<header class="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800 py-6">
+  <a href="/" class="text-xl font-bold text-white">Gerardo</a>
+  <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-zinc-400">
     {
       nav.map((item) => (
         <a
           href={item.href}
-          class="text-zinc-400 transition-colors hover:text-white"
+          class="transition-colors hover:text-white"
         >
           {item.label}
         </a>

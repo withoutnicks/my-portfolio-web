@@ -7,36 +7,32 @@ import FileText from "@astro/icons/FileText.astro";
 const email = "gcaycho07@gmail.com";
 ---
 
-<section class="py-12">
-  <div class="flex items-center gap-4">
-    <img
-      src="/profile.webp"
-      alt="Retrato de Gerardo Caycho"
-      width="72"
-      height="72"
-      class="size-16 rounded-full grayscale"
-      loading="eager"
-    />
-    <div>
-      <h1 class="text-4xl font-normal text-white">Gerardo Caycho</h1>
-      <p class="mt-1 text-sm text-zinc-500">Desarrollador web · Lima, Perú</p>
-    </div>
-  </div>
+<section class="flex flex-col items-center py-16 text-center">
+  <img
+    src="/profile.webp"
+    alt="Gerardo Caycho"
+    width="96"
+    height="96"
+    class="mb-5 aspect-square rounded-lg object-cover grayscale"
+    loading="eager"
+  />
 
-  <p class="mt-6 max-w-[60ch] text-lg leading-relaxed text-zinc-400">
+  <h1 class="text-4xl font-bold text-white">Gerardo Caycho</h1>
+  <p class="mt-2 text-sm text-zinc-400">Desarrollador Web &middot; Lima, Perú</p>
+
+  <p class="mt-6 max-w-[55ch] text-base leading-relaxed text-zinc-300">
     Diseño y construyo interfaces con <span class="text-white">Astro</span> y
-    <span class="text-white">React</span>. Acá dejo lo que he hecho, dónde estudié
-    y cómo escribirme.
+    <span class="text-white">React</span>. Acá dejo lo que he hecho, dónde estudié y cómo escribirme.
   </p>
 
-  <div class="mt-6 flex flex-wrap gap-2 text-sm">
+  <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
     <Button id="btnCopyEmail" data-email={email}>
       <Envelope />
-      <span id="copyEmailLabel">copiar email</span>
+      <span id="copyEmailLabel">Copiar Email</span>
     </Button>
     <LinkButton href="/cv_gcaycho.pdf" variant="primary">
       <FileText />
-      ver CV
+      Ver CV
     </LinkButton>
   </div>
 </section>
@@ -51,9 +47,9 @@ const email = "gcaycho07@gmail.com";
 
     try {
       await navigator.clipboard.writeText(email);
-      label.textContent = "copiado ✓";
+      label.textContent = "Copiado";
       setTimeout(() => {
-        label.textContent = "copiar email";
+        label.textContent = "Copiar Email";
       }, 2000);
     } catch {
       label.textContent = email;

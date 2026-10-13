@@ -4,25 +4,31 @@ import Badge from "@astro/Badge.astro";
 import AstroIcon from "@astro/icons/AstroIcon.astro";
 import TypeScriptIcon from "@astro/icons/TypeScriptIcon.astro";
 
-const skills = [
-  { label: "Lenguajes", items: ["TypeScript", "CSS", "SQL"] },
-  { label: "Frameworks y librerías", items: ["Astro", "React", "Next.js"] },
-];
-
 const skillIcons: Record<string, typeof AstroIcon> = {
   Astro: AstroIcon,
   TypeScript: TypeScriptIcon,
 };
+
+const skills = [
+  {
+    label: "Lenguajes",
+    items: ["TypeScript", "CSS", "SQL"],
+  },
+  {
+    label: "Frameworks y librerías",
+    items: ["Astro", "React", "Next.js"],
+  },
+];
 ---
 
-<section id="habilidades" class="py-8">
+<section id="habilidades" class="border-b border-zinc-800 py-12">
   <SubtitleSection title="Habilidades" />
 
-  <dl class="flex flex-col gap-3">
+  <dl class="mt-6 flex flex-col gap-4">
     {
       skills.map((group) => (
-        <div class="flex flex-col gap-2 sm:flex-row sm:gap-4">
-          <dt class="w-48 shrink-0 pt-0.5 text-zinc-500">{group.label}</dt>
+        <div class="grid grid-cols-[9rem_1fr] items-start gap-3">
+          <dt class="pt-0.5 text-sm text-zinc-500">{group.label}</dt>
           <dd class="flex flex-wrap gap-2">
             {group.items.map((skill) => {
               const Icon = skillIcons[skill];

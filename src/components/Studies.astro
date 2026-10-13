@@ -2,36 +2,23 @@
 import SubtitleSection from "@astro/SubtitleSection.astro";
 ---
 
-<section id="educacion" class="py-8">
+<section id="educacion" class="border-b border-zinc-800 py-12">
   <SubtitleSection title="Educación" />
 
-  <section class="md:max-w-xl">
-    <div class="flex gap-x-3">
-      <div
-        class="relative after:absolute after:bottom-0 after:start-3.5 after:top-7 after:w-px after:translate-x-[0.5px] after:bg-zinc-700 last:after:hidden"
-      >
-        <div class="relative z-10 flex size-7 items-center justify-center">
-          <div class="size-2 rounded-full bg-zinc-500"></div>
-        </div>
-      </div>
-
-      <div class="grow py-4">
-        <h3 class="flex items-center gap-x-1.5 font-normal text-white">
-          <img
-            src="/idat.webp"
-            alt="Logo del instituto IDAT"
-            width="16"
-            height="16"
-            class="hidden size-4 rounded-lg invert sm:block"
-            loading="lazy"
-          />
-          Desarrollo de sistemas de información - IDAT
-        </h3>
-        <p class="mt-1 max-w-lg text-sm leading-relaxed text-zinc-400">
-          Egresado de la carrera técnica de Desarrollo de Sistemas del Instituto de Tecnología de la
-          Información y la Comunicación (IDAT) de Lima, Perú.
-        </p>
-      </div>
+  <div class="mt-6 flex gap-x-4">
+    <div class="flex flex-col items-center gap-2">
+      <div class="size-2.5 rounded-full bg-zinc-600"></div>
+      <div class="w-px flex-1 bg-zinc-800"></div>
     </div>
-  </section>
+
+    <div class="pb-6">
+      <h3 class="text-base font-semibold text-white">
+        Desarrollo de Sistemas de Información &mdash; IDAT
+      </h3>
+      <p class="mt-1 text-sm text-zinc-400">
+        Egresado de la carrera técnica de Desarrollo de Sistemas del Instituto de Tecnología
+        de la Información y la Comunicación (IDAT) de Lima, Perú.
+      </p>
+    </div>
+  </div>
 </section>

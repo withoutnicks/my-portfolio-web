@@ -21,16 +21,25 @@ const stackIcons: Record<string, typeof AstroIcon> = {
 };
 ---
 
-<section id="proyectos" class="py-8">
+<section id="proyectos" class="border-b border-zinc-800 py-12">
   <SubtitleSection title="Proyectos" />
 
-  <ul class="flex flex-col gap-8">
+  <div class="mt-6 grid gap-4 md:grid-cols-2">
     {
       projects.map((project) => (
-        <li class="flex flex-col gap-2">
-          <h3 class="text-xl font-normal text-white">{project.name}</h3>
+        <article class="card flex flex-col gap-3">
+          {project.bannerUrl && (
+            <img
+              src={project.bannerUrl}
+              alt={`${project.name} preview`}
+              class="h-28 w-full rounded-md object-cover"
+              loading="lazy"
+            />
+          )}
 
-          <p class="flex flex-wrap gap-2">
+          <h3 class="text-lg font-semibold text-white">{project.name}</h3>
+
+          <div class="flex flex-wrap gap-2">
             {project.stack.map((tech) => {
               const Icon = stackIcons[tech];
               return (
@@ -40,11 +49,11 @@ const stackIcons: Record<string, typeof AstroIcon> = {
                 </Badge>
               );
             })}
-          </p>
+          </div>
 
-          <p class="max-w-[60ch] leading-relaxed text-zinc-400">{project.description}</p>
+          <p class="text-sm leading-relaxed text-zinc-400">{project.description}</p>
 
-          <p class="flex flex-wrap gap-2 text-sm">
+          <div class="mt-auto flex flex-wrap gap-2 pt-1">
             {project.links.map((link) => {
               const isRepo = link.text === "Repositorio";
               return (
@@ -54,9 +63,9 @@ const stackIcons: Record<string, typeof AstroIcon> = {
                 </LinkButton>
               );
             })}
-          </p>
-        </li>
+          </div>
+        </article>
       ))
     }
-  </ul>
+  </div>
 </section>
