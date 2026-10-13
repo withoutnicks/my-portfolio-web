@@ -1,4 +1,9 @@
 ---
+import Button from "@astro/Button.astro";
+import LinkButton from "@astro/LinkButton.astro";
+import Envelope from "@astro/icons/Envelope.astro";
+import FileText from "@astro/icons/FileText.astro";
+
 const email = "gcaycho07@gmail.com";
 ---
 
@@ -13,7 +18,7 @@ const email = "gcaycho07@gmail.com";
       loading="eager"
     />
     <div>
-      <h1 class="font-serif text-4xl text-white">Gerardo Caycho</h1>
+      <h1 class="text-4xl font-normal text-white">Gerardo Caycho</h1>
       <p class="mt-1 text-sm text-zinc-500">Desarrollador web · Lima, Perú</p>
     </div>
   </div>
@@ -24,36 +29,34 @@ const email = "gcaycho07@gmail.com";
     y cómo escribirme.
   </p>
 
-  <p class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-    <button
-      type="button"
-      id="btnCopyEmail"
-      data-email={email}
-      class="link cursor-pointer bg-transparent p-0 text-left"
-    >
-      copiar email
-    </button>
-    <a href="/cv_gcaycho.pdf" target="_blank" rel="noopener noreferrer" class="link">
+  <div class="mt-6 flex flex-wrap gap-2 text-sm">
+    <Button id="btnCopyEmail" data-email={email}>
+      <Envelope />
+      <span id="copyEmailLabel">copiar email</span>
+    </Button>
+    <LinkButton href="/cv_gcaycho.pdf" variant="primary">
+      <FileText />
       ver CV
-    </a>
-  </p>
+    </LinkButton>
+  </div>
 </section>
 
 <script>
   const btn = document.querySelector<HTMLButtonElement>("#btnCopyEmail");
+  const label = document.querySelector<HTMLSpanElement>("#copyEmailLabel");
 
   btn?.addEventListener("click", async () => {
     const email = btn.dataset.email;
-    if (!email) return;
+    if (!email || !label) return;
 
     try {
       await navigator.clipboard.writeText(email);
-      btn.textContent = "copiado ✓";
+      label.textContent = "copiado ✓";
       setTimeout(() => {
-        btn.textContent = "copiar email";
+        label.textContent = "copiar email";
       }, 2000);
     } catch {
-      btn.textContent = email;
+      label.textContent = email;
     }
   });
 </script>

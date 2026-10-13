@@ -1,7 +1,24 @@
 ---
 import SubtitleSection from "@astro/SubtitleSection.astro";
+import Badge from "@astro/Badge.astro";
+import LinkButton from "@astro/LinkButton.astro";
+import Code from "@astro/icons/Code.astro";
+import ExternalLink from "@astro/icons/ExternalLink.astro";
+import AstroIcon from "@astro/icons/AstroIcon.astro";
+import TailwindIcon from "@astro/icons/TailwindIcon.astro";
+import TypeScriptIcon from "@astro/icons/TypeScriptIcon.astro";
+import VSCodeIcon from "@astro/icons/VSCodeIcon.astro";
+import JSONIcon from "@astro/icons/JSONIcon.astro";
 
 import { projects } from "@/data/projects";
+
+const stackIcons: Record<string, typeof AstroIcon> = {
+  Astro: AstroIcon,
+  "Tailwind CSS": TailwindIcon,
+  TypeScript: TypeScriptIcon,
+  "VS Code": VSCodeIcon,
+  JSON: JSONIcon,
+};
 ---
 
 <section id="proyectos" class="py-8">
@@ -11,26 +28,32 @@ import { projects } from "@/data/projects";
     {
       projects.map((project) => (
         <li class="flex flex-col gap-2">
-          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h3 class="font-serif text-xl text-white">{project.name}</h3>
-            <p class="text-xs uppercase tracking-wide text-zinc-500">
-              {project.stack.join(" · ")}
-            </p>
-          </div>
+          <h3 class="text-xl font-normal text-white">{project.name}</h3>
+
+          <p class="flex flex-wrap gap-2">
+            {project.stack.map((tech) => {
+              const Icon = stackIcons[tech];
+              return (
+                <Badge>
+                  {Icon && <Icon />}
+                  {tech}
+                </Badge>
+              );
+            })}
+          </p>
 
           <p class="max-w-[60ch] leading-relaxed text-zinc-400">{project.description}</p>
 
-          <p class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-            {project.links.map((link) => (
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link"
-              >
-                {link.text}
-              </a>
-            ))}
+          <p class="flex flex-wrap gap-2 text-sm">
+            {project.links.map((link) => {
+              const isRepo = link.text === "Repositorio";
+              return (
+                <LinkButton href={link.href}>
+                  {isRepo ? <Code /> : <ExternalLink />}
+                  {link.text}
+                </LinkButton>
+              );
+            })}
           </p>
         </li>
       ))

@@ -14,10 +14,11 @@ Do not treat `README.md` as structural truth. It still lists a proposed tree, de
 
 ## Layout
 
-Reading order: purpose (Hero) → `#sobre-mi` → `#proyectos` → `#educacion` → `#habilidades` → `#contacto`. Section `id`s back the in-page nav in the header.
+Reading order: purpose (Hero) → `#sobre-mi` → `#proyectos` → `#educacion` → `#habilidades` → `#contacto`. Section `id`s back the in-page nav in the header. Layout is an ATS/CV-style resume: badges for stacks, icon buttons for CTAs, no photos in sections (Hero keeps a small byline photo).
 
-- `src/layouts/Layout.astro` owns chrome: Header/Footer, `globals.css`, Zilla Slab `@fontsource` imports, meta/OG. No View Transitions and no Toaster.
+- `src/layouts/Layout.astro` owns chrome: Header/Footer, `globals.css`, Space Grotesk `@fontsource` import, meta/OG. No View Transitions and no Toaster.
 - `src/components/{Hero,About,Projects,Studies,Skills,Contact}.astro` — one section per file; each (except Hero) wraps itself in `<section id="…">` + `SubtitleSection` (`src/components/astro/SubtitleSection.astro`).
+- `src/components/astro/` — UI primitives: `Badge.astro`, `Button.astro`, `LinkButton.astro`, and `icons/` (inline-SVG action + tech icons, Astro not React).
 - `src/components/views/` — Header (name + in-page nav), Footer (`@views/*`).
 - `src/data/projects.ts` — plain data (`stack: string[]`, `links: {text, href}[]`). No JSX in data. Types in `src/types.ts`.
 - `src/components/atoms/` — shadcn React primitives kept as a dormant library: **nothing imports them and the `react()` integration was removed from `astro.config.mjs`**. To use one again: re-add `react()` to the config first. `molecules/` no longer exists.
@@ -25,16 +26,19 @@ Reading order: purpose (Hero) → `#sobre-mi` → `#proyectos` → `#educacion` 
 
 ## Scripts
 
-The page has exactly one client script: copy-email in `Hero.astro` (`#btnCopyEmail`). Plain `<script>` (bundled, runs once); no View Transitions, so no `astro:page-load` listener is needed.
+The page has exactly one client script: copy-email in `Hero.astro` (`#btnCopyEmail`, toggles `#copyEmailLabel`). Plain `<script>` (bundled, runs once); no View Transitions, so no `astro:page-load` listener is needed.
+
+Design notes for the current look live in `docs/plans/ats-cv-chrome.md`.
 
 ## Tailwind
 
 - `@astrojs/tailwind` with `applyBaseStyles: false` — keep the `@tailwind` directives in `src/styles/globals.css`.
 - Tailwind **3** (`tailwind.config.mjs`), `darkMode: ["class"]` (inherited from shadcn; the page itself is hardcoded dark `bg-black`, `dark:` variants never activate).
-- Fonts: body = system sans; headings = `font-serif` = Zilla Slab (imported in Layout via `@fontsource/zilla-slab`).
-- `.link` in `globals.css` is the shared link style (white + underline). `mask` / `mask-squircle` utilities power the About photo.
+- Fonts: **Space Grotesk only** (`font-sans`, imported in Layout via `@fontsource-variable/space-grotesk`). No display/serif font.
+- `globals.css` component classes: `.btn`, `.btn-primary` (action buttons), `.badge` (chips), `.link` (white underline).
+- Emphasis is always `<span class="text-white">` — never `<strong>`, `<b>`, or `font-bold`/`font-semibold`/`font-extrabold`. Headings use size + `font-normal`.
 
 ## Content
 
-- UI copy is Spanish (`<html lang="es"`). Static files live in `public/`, referenced as root paths (`/profile.webp`, `/about.webp`, `/cv_gcaycho.pdf`).
+- UI copy is Spanish (`<html lang="es">`). Static files live in `public/`, referenced as root paths (`/profile.webp`, `/cv_gcaycho.pdf`). `/about.webp` is unused since the Sobre mí section is text only.
 - **There is deliberately no contact form.** Contact is a mailto + CV/GitHub/LinkedIn link list. Do not re-add Netlify Forms.

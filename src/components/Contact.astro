@@ -1,5 +1,10 @@
 ---
 import SubtitleSection from "@astro/SubtitleSection.astro";
+import LinkButton from "@astro/LinkButton.astro";
+import Envelope from "@astro/icons/Envelope.astro";
+import FileText from "@astro/icons/FileText.astro";
+import GitHub from "@astro/icons/GitHub.astro";
+import LinkedIn from "@astro/icons/LinkedIn.astro";
 
 const email = "gcaycho07@gmail.com";
 ---
@@ -12,51 +17,22 @@ const email = "gcaycho07@gmail.com";
     email.
   </p>
 
-  <dl class="mt-4 flex flex-col gap-2 text-sm">
-    <div class="flex gap-4">
-      <dt class="w-24 shrink-0 text-zinc-500">Email</dt>
-      <dd>
-        <a href={`mailto:${email}`} class="link">{email}</a>
-      </dd>
-    </div>
-    <div class="flex gap-4">
-      <dt class="w-24 shrink-0 text-zinc-500">CV</dt>
-      <dd>
-        <a
-          href="/cv_gcaycho.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="link"
-        >
-          ver CV (PDF)
-        </a>
-      </dd>
-    </div>
-    <div class="flex gap-4">
-      <dt class="w-24 shrink-0 text-zinc-500">GitHub</dt>
-      <dd>
-        <a
-          href="https://github.com/withoutnicks"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="link"
-        >
-          withoutnicks
-        </a>
-      </dd>
-    </div>
-    <div class="flex gap-4">
-      <dt class="w-24 shrink-0 text-zinc-500">LinkedIn</dt>
-      <dd>
-        <a
-          href="https://www.linkedin.com/in/grardocaycho/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="link"
-        >
-          grardocaycho
-        </a>
-      </dd>
-    </div>
-  </dl>
+  <div class="mt-4 flex flex-wrap gap-2 text-sm">
+    <a href={`mailto:${email}`} class="btn">
+      <Envelope />
+      {email}
+    </a>
+    <LinkButton href="/cv_gcaycho.pdf" variant="primary">
+      <FileText />
+      ver CV (PDF)
+    </LinkButton>
+    <LinkButton href="https://github.com/withoutnicks">
+      <GitHub />
+      withoutnicks
+    </LinkButton>
+    <LinkButton href="https://www.linkedin.com/in/grardocaycho/">
+      <LinkedIn />
+      grardocaycho
+    </LinkButton>
+  </div>
 </section>

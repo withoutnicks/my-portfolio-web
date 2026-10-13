@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+  variant?: "outline" | "primary";
+  class?: string;
+  "aria-label"?: string;
+}
+
+const {
+  href,
+  variant = "outline",
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  {...rest}
+  class:list={[variant === "primary" ? "btn-primary" : "btn", className]}
+>
+  <slot />
+</a>

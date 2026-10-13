@@ -12,8 +12,7 @@ export default {
       colors: {},
     },
     fontFamily: {
-      sans: ["ui-sans-serif", "system-ui", "sans-serif"],
-      serif: ["'Zilla Slab'", "Georgia", "serif"],
+      sans: ["'Space Grotesk Variable'", "Space Grotesk", "system-ui", "sans-serif"],
       mono: ["ui-monospace", "SFMono-Regular"],
     },
   },
