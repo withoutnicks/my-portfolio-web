@@ -1,44 +1,59 @@
 ---
-import { EnvelopeClosedIcon, FileTextIcon, CheckCircledIcon } from "@radix-ui/react-icons";
-import { Button } from "@atoms/button";
-import "@fontsource-variable/space-grotesk";
-import LinkButton from "@astro/LinkButton.astro";
+const email = "gcaycho07@gmail.com";
 ---
 
-<section class="grid h-[92vh] place-content-center place-items-center gap-4 text-center">
-  <div class="relative flex w-full justify-center">
+<section class="py-12">
+  <div class="flex items-center gap-4">
     <img
-      src="profile.webp"
-      alt="Selfie for my portfolio"
-      class="size-44 rounded-full pointer-events-none"
+      src="/profile.webp"
+      alt="Retrato de Gerardo Caycho"
+      width="72"
+      height="72"
+      class="size-16 rounded-full grayscale"
       loading="eager"
     />
+    <div>
+      <h1 class="font-serif text-4xl text-white">Gerardo Caycho</h1>
+      <p class="mt-1 text-sm text-zinc-500">Desarrollador web · Lima, Perú</p>
+    </div>
   </div>
-  <div class="flex flex-col">
-    <h1 class="text-4xl font-bold md:text-4xl group cursor-crosshair font-space">
-      hoLa, me llamo <br />
-      <span class="transition duration-300 ease-in-out group-hover:text-blue-600"
-        >gerardo caycho</span
-      >
-    </h1>
-    <p class="my-4 font-varela">Desarrollador de aplicaciones web. Lima, Peru.</p>
-    <section class="mx-auto flex flex-col gap-2 sm:flex-row">
-      <Button variant="outline" id="btnCopyEmail">
-        <EnvelopeClosedIcon className="mr-2" /> Contactar
-      </Button>
-      <LinkButton link="/cv_gcaycho.pdf" variant={"primary"} text="Ver CV" position="left">
-        <FileTextIcon />
-      </LinkButton>
-    </section>
-  </div>
+
+  <p class="mt-6 max-w-[60ch] text-lg leading-relaxed text-zinc-400">
+    Diseño y construyo interfaces con <span class="text-white">Astro</span> y
+    <span class="text-white">React</span>. Acá dejo lo que he hecho, dónde estudié
+    y cómo escribirme.
+  </p>
+
+  <p class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+    <button
+      type="button"
+      id="btnCopyEmail"
+      data-email={email}
+      class="link cursor-pointer bg-transparent p-0 text-left"
+    >
+      copiar email
+    </button>
+    <a href="/cv_gcaycho.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      ver CV
+    </a>
+  </p>
 </section>
 
 <script>
-  import { toast } from "sonner";
-  const $btn = document.querySelector("#btnCopyEmail");
+  const btn = document.querySelector<HTMLButtonElement>("#btnCopyEmail");
 
-  $btn?.addEventListener("click", () => {
-    navigator.clipboard.writeText("gcaycho07@gmail.com");
-    toast("Email copiado en el portapapeles");
+  btn?.addEventListener("click", async () => {
+    const email = btn.dataset.email;
+    if (!email) return;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      btn.textContent = "copiado ✓";
+      setTimeout(() => {
+        btn.textContent = "copiar email";
+      }, 2000);
+    } catch {
+      btn.textContent = email;
+    }
   });
 </script>

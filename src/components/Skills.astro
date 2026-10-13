@@ -1,21 +1,23 @@
 ---
 import SubtitleSection from "@astro/SubtitleSection.astro";
-import { Badge } from "@atoms/badge";
+
+const skills = [
+  { label: "Lenguajes", items: ["TypeScript", "CSS", "SQL"] },
+  { label: "Frameworks y librerías", items: ["Astro", "React", "Next.js"] },
+];
 ---
 
-<SubtitleSection title="Habilidades" />
+<section id="habilidades" class="py-8">
+  <SubtitleSection title="Habilidades" />
 
-<section class="flex flex-col justify-center gap-2 p-2">
-  <div class="mx-auto">
-    <small>Lenguajes:</small>
-    <Badge variant="secondary">TypeScript</Badge>
-    <Badge variant="secondary">CSS</Badge>
-    <Badge variant="secondary">SQL</Badge>
-  </div>
-  <div class="mx-auto">
-    <small>Framework's/Librerias:</small>
-    <Badge variant="secondary">Astro</Badge>
-    <Badge variant="secondary">React</Badge>
-    <Badge variant="secondary">Next.js</Badge>
-  </div>
+  <dl class="flex flex-col gap-3">
+    {
+      skills.map((group) => (
+        <div class="flex flex-col gap-1 sm:flex-row sm:gap-4">
+          <dt class="w-48 shrink-0 text-zinc-500">{group.label}</dt>
+          <dd class="text-zinc-300">{group.items.join(", ")}</dd>
+        </div>
+      ))
+    }
+  </dl>
 </section>

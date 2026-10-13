@@ -2,21 +2,38 @@
 import SubtitleSection from "@astro/SubtitleSection.astro";
 
 import { projects } from "@/data/projects";
-import { ProjectCard } from "./molecules/projectCard";
 ---
 
-<SubtitleSection title="Proyectos Destacados" />
+<section id="proyectos" class="py-8">
+  <SubtitleSection title="Proyectos" />
 
-<section class="flex flex-col gap-8 p-2">
-  {
-    projects.map((project) => (
-      <ProjectCard
-        name={project.name}
-        description={project.description}
-        bannerUrl={project.bannerUrl}
-        stackTech={project.stackTech}
-        ctas={project.ctas}
-      />
-    ))
-  }
+  <ul class="flex flex-col gap-8">
+    {
+      projects.map((project) => (
+        <li class="flex flex-col gap-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-serif text-xl text-white">{project.name}</h3>
+            <p class="text-xs uppercase tracking-wide text-zinc-500">
+              {project.stack.join(" · ")}
+            </p>
+          </div>
+
+          <p class="max-w-[60ch] leading-relaxed text-zinc-400">{project.description}</p>
+
+          <p class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            {project.links.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link"
+              >
+                {link.text}
+              </a>
+            ))}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
 </section>

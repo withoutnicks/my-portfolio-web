@@ -1,9 +1,10 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import Footer from "@views/Footer.astro";
 import Header from "@views/Header.astro";
 import "@styles/globals.css";
-import { Toaster } from "sonner";
+import "@fontsource/zilla-slab/400.css";
+import "@fontsource/zilla-slab/600.css";
+import "@fontsource/zilla-slab/700.css";
 
 interface Props {
   title: string;
@@ -45,14 +46,14 @@ const { title } = Astro.props;
       name="twitter:image"
       content="https://raw.githubusercontent.com/withoutnicks/my-portfolio-web/refs/heads/main/public/preview.webp"
     />
-    <ClientRouter />
   </head>
-  <body class="overflow-x-hidden bg-black text-white">
-    <div class="mx-auto max-w-4xl">
+  <body class="bg-black text-zinc-300">
+    <div class="mx-auto w-full max-w-3xl px-6">
       <Header />
-      <slot />
+      <main>
+        <slot />
+      </main>
       <Footer />
     </div>
-    <Toaster richColors client:idle />
   </body>
 </html>

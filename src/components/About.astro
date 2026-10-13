@@ -1,32 +1,36 @@
 ---
-import { Image } from "astro:assets";
 import SubtitleSection from "@astro/SubtitleSection.astro";
 ---
 
-<SubtitleSection title="Sobre mi" />
+<section id="sobre-mi" class="py-8">
+  <SubtitleSection title="Sobre mí" />
 
-<section class="flex flex-col items-center justify-center gap-8 p-2 sm:h-72 sm:flex-row">
-  <div class="flex max-w-[28rem] flex-col gap-2 text-pretty text-base font-varela">
-    <p>
-      Me llamo <strong>Gerardo Caycho</strong> y tengo <strong>19 años</strong>. No me di cuenta de
-      cuánto me gustaba este campo hasta que comencé a estudiarlo. 🤓
-    </p>
-    <p>
-      Soy egresado de una licenciatura en <strong>Desarrollo de Sistemas de Información</strong>
-      o <strong>Computación e Informática</strong>
-      en el instituto <strong>IDAT</strong>. 🎓
-    </p>
-    <p>
-      Actualmente, me especializo en <strong>desarrollo web</strong> y aprendo de manera autodidacta,
-      construyendo sitios como este. 🦭
-    </p>
+  <div class="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
+    <div class="flex max-w-[36rem] flex-col gap-3 text-pretty leading-relaxed text-zinc-400">
+      <p>
+        Me llamo <strong class="text-white">Gerardo Caycho</strong> y tengo <strong
+          class="text-white">19 años</strong
+        >. No me di cuenta de cuánto me gustaba este campo hasta que comencé a estudiarlo. 🤓
+      </p>
+      <p>
+        Soy egresado de una licenciatura en
+        <strong class="text-white">Desarrollo de Sistemas de Información</strong> o
+        <strong class="text-white">Computación e Informática</strong> en el instituto
+        <strong class="text-white">IDAT</strong>. 🎓
+      </p>
+      <p>
+        Actualmente me especializo en <strong class="text-white">desarrollo web</strong> y aprendo de
+        manera autodidacta, construyendo sitios como este. 🦭
+      </p>
+    </div>
+
+    <img
+      src="/about.webp"
+      alt="Retrato de Gerardo"
+      width="224"
+      height="224"
+      loading="lazy"
+      class="mask mask-squircle size-56 shrink-0 object-cover"
+    />
   </div>
-  <Image
-    width={256}
-    height={256}
-    src="/about.webp"
-    alt="Frontal selfie"
-    loading={"lazy"}
-    class="mask mask-squircle object-cover"
-  />
 </section>

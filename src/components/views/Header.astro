@@ -1,18 +1,27 @@
 ---
-import { LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
-import IconLink from "@astro/IconLink.astro";
-import "@fontsource/asimovian";
-import "@fontsource-variable/space-grotesk";
+const nav = [
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#educacion", label: "Educación" },
+  { href: "#habilidades", label: "Habilidades" },
+  { href: "#contacto", label: "Contacto" },
+];
 ---
 
-<header class="z-10 flex h-[8vh] w-full items-center justify-between px-4 lg:px-0 py-4">
-  <h2 class="text-2xl font-asimovian font-extrabold">gerardo</h2>
-  <aside class="flex items-center gap-2">
-    <IconLink href="https://www.linkedin.com/in/grardocaycho/" description="Link to Linkedin">
-      <LinkedInLogoIcon />
-    </IconLink>
-    <IconLink href="https://github.com/withoutnicks" description="Link to GitHub">
-      <GitHubLogoIcon />
-    </IconLink>
-  </aside>
+<header
+  class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-zinc-800 py-6"
+>
+  <a href="/" class="font-serif text-lg text-white">gerardo</a>
+  <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+    {
+      nav.map((item) => (
+        <a
+          href={item.href}
+          class="text-zinc-400 transition-colors hover:text-white"
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
 </header>
