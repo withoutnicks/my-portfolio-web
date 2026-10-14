@@ -32,7 +32,7 @@ const stackIcons: Record<string, typeof AstroIcon> = {
             <img
               src={project.bannerUrl}
               alt={`${project.name} preview`}
-              class="h-28 w-full rounded-md object-cover"
+              class="h-36 w-full rounded-md object-cover object-[25%_25%]"
               loading="lazy"
             />
           )}
@@ -51,7 +51,9 @@ const stackIcons: Record<string, typeof AstroIcon> = {
             })}
           </div>
 
-          <p class="text-sm leading-relaxed text-zinc-400">{project.description}</p>
+          <p class="text-sm leading-relaxed text-zinc-400">
+            {project.description}
+          </p>
 
           <div class="mt-auto flex flex-wrap gap-2 pt-1">
             {project.links.map((link) => {

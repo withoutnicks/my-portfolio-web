@@ -12,11 +12,11 @@ const skillIcons: Record<string, typeof AstroIcon> = {
 const skills = [
   {
     label: "Lenguajes",
-    items: ["TypeScript", "CSS", "SQL"],
+    items: ["TypeScript", "CSS", "SQL", "HTML"],
   },
   {
-    label: "Frameworks y librerías",
-    items: ["Astro", "React", "Next.js"],
+    label: "Frameworks",
+    items: ["Astro", "Angular", "NestJS"],
   },
 ];
 ---
@@ -31,13 +31,7 @@ const skills = [
           <dt class="pt-0.5 text-sm text-zinc-500">{group.label}</dt>
           <dd class="flex flex-wrap gap-2">
             {group.items.map((skill) => {
-              const Icon = skillIcons[skill];
-              return (
-                <Badge>
-                  {Icon && <Icon />}
-                  {skill}
-                </Badge>
-              );
+              return <Badge>{skill}</Badge>;
             })}
           </dd>
         </div>

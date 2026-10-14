@@ -35,10 +35,10 @@ Design notes for the current look live in `docs/plans/ats-cv-chrome.md`.
 - `@astrojs/tailwind` with `applyBaseStyles: false` — keep the `@tailwind` directives in `src/styles/globals.css`.
 - Tailwind **3** (`tailwind.config.mjs`), `darkMode: ["class"]` (inherited from shadcn; the page itself is hardcoded dark `bg-black`, `dark:` variants never activate).
 - Fonts: **Space Grotesk only** (`font-sans`, imported in Layout via `@fontsource-variable/space-grotesk`). No display/serif font.
-- `globals.css` component classes: `.btn`, `.btn-primary` (action buttons), `.badge` (chips), `.link` (white underline).
-- Emphasis is always `<span class="text-white">` — never `<strong>`, `<b>`, or `font-bold`/`font-semibold`/`font-extrabold`. Headings use size + `font-normal`.
+- `globals.css` component classes: `.btn`, `.btn-primary`, `.badge` (chips), `.card` (project entry), `.link` (white underline).
+- Emphasis is always `<span class="text-white">` — never `<strong>` or `<b>`. Body copy uses `text-zinc-300/400`. Headings use `text-white` + weight (`font-bold` for display name, `font-semibold` for section/subsection).
 
 ## Content
 
 - UI copy is Spanish (`<html lang="es">`). Static files live in `public/`, referenced as root paths (`/profile.webp`, `/cv_gcaycho.pdf`). `/about.webp` is unused since the Sobre mí section is text only.
-- **There is deliberately no contact form.** Contact is a mailto + CV/GitHub/LinkedIn link list. Do not re-add Netlify Forms.
+- **There is deliberately no contact form.** Contact section lists only GitHub and LinkedIn (both as `.btn` with icon). Email copy + CV stay in the Hero section. Do not re-add Netlify Forms.

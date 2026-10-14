@@ -21,7 +21,7 @@ export const projects: Project[] = [
     stack: ["VS Code", "JSON"],
     links: [
       { text: "Repositorio", href: "https://github.com/withoutnicks/react-and-js-snippets" },
-      { text: "Marketplace", href: "https://marketplace.visualstudio.com/items?itemName=wts-dev.wts-react-js-snippets" },
+      { text: "Ver Sitio", href: "https://react-and-js-snippets.vercel.app/" },
     ],
     bannerUrl: "/poster/speed.svg",
   },
